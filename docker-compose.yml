@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  quantum-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.quantum_engine
+    container_name: qtwin_quantum_engine
+    ports:
+      - "50051:50051"
+
+  ai-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    container_name: qtwin_ai_gateway
+    ports:
+      - "8000:8000"
+    depends_on:
+      - quantum-engine

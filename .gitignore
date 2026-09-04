@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.vcd
+qtwin_tb_sim
+obj_dir/
+vivado_build/
+*.bit
+*.rpt

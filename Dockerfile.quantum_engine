@@ -1,0 +1,8 @@
+FROM python:3.10-slim
+WORKDIR /app
+RUN pip install --no-cache-dir numpy grpcio grpcio-tools
+COPY q_twin.proto .
+RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. q_twin.proto
+COPY engine_server.py .
+EXPOSE 50051
+CMD ["python", "engine_server.py"]

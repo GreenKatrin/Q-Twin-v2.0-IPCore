@@ -1,0 +1,21 @@
+syntax = "proto3";
+package qtwin;
+
+service QuantumEngineService {
+  rpc EvolveQubit (PulseRequest) returns (StateResponse);
+}
+
+message PulseRequest {
+  uint32 qubit_id = 1;
+  double phase_pulse_rad = 2;
+  double pressure_mpa = 3;
+  double temperature_mk = 4;
+}
+
+message StateResponse {
+  uint32 qubit_id = 1;
+  double prob_zero = 2;
+  double prob_one = 3;
+  double mechanical_drift_hz = 4;
+  double thermal_noise_rate = 5;
+}

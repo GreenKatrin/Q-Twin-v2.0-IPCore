@@ -1,0 +1,8 @@
+FROM python:3.10-slim
+WORKDIR /app
+RUN pip install --no-cache-dir fastapi uvicorn grpcio grpcio-tools pydantic
+COPY q_twin.proto .
+RUN python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. q_twin.proto
+COPY agent_api.py .
+EXPOSE 8000
+CMD ["uvicorn", "agent_api:app", "--host", "0.0.0.0", "--port", "8000"]

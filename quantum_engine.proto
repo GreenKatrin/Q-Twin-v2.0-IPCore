@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package qtwin.physics;
+
+service QuantumEngine {
+  rpc SimulateStep (SimulationRequest) returns (SimulationResponse);
+  rpc UpdateSystemParams (SystemParamsRequest) returns (SystemParamsResponse);
+}
+
+message QubitSpec {
+  uint32 qubit_id = 1;
+  double frequency_ghz = 2;
+  double anharmonicity_mhz = 3;
+  double t1_us = 4;
+  double t2_us = 5;
+}
+
+message SystemParamsRequest {
+  uint32 num_qubits = 1;
+  repeated QubitSpec qubits = 2;
+  repeated double coupling_matrix_j = 3; 
+  repeated double control_crosstalk_matrix = 4; 
+}
+
+message ControlSignals {
+  uint32 qubit_id = 1;
+  double i_amplitude = 2;
+  double q_amplitude = 3;
+}
+
+message SimulationRequest {
+  double delta_t_ns = 1;
+  double temperature_mk = 2;
+  double pressure_mpa = 3;
+  repeated ControlSignals drive_signals = 4;
+}
+
+message SimulationResponse {
+  repeated double density_matrix_real = 1;
+  repeated double density_matrix_imag = 2;
+  repeated uint32 tensor_shape = 3;
+  double average_fidelity = 4;
+  double total_crosstalk_error = 5;
+}
+
+message SystemParamsResponse {
+  bool success = 1;
+  string message = 2;
+  uint64 hilbert_space_dimension = 3;
+}
