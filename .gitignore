@@ -1,8 +1,5 @@
 __pycache__/
-*.pyc
-*.vcd
-qtwin_tb_sim
-obj_dir/
-vivado_build/
-*.bit
-*.rpt
+*.py[cod]
+*.h5
+*.json
+.DS_Store
