@@ -55,6 +55,19 @@ El sistema simula en tiempo real la supresión del caos de Belinski-Khalatnikov-
 ## ⚙️ Instrucciones de Ejecución
 ---
 
+
+---
+
+## 📈 Benchmark Cosmológico HFGW y Quiralidad
+
+El repositorio incluye el conjunto de datos de referencia y la proyección gráfica para el fondo estocástico de ondas gravitacionales de alta frecuencia (HFGW):
+
+* **`hfgw_chiral_benchmark.json`**: Barrido espectral ($10\text{ Hz} - 100\text{ MHz}$) con densidad de energía total, grado de quiralidad ($\Pi(f)$) y descomposición en modos circulares ($\Omega_{\text{GW}}^R, \Omega_{\text{GW}}^L$).
+* **`hfgw_spectrum_chiral.png`**: Curva espectral con pico en $100\text{ kHz}$ y transición a polarización circular neta en la banda de microondas.
+
+![HFGW Spectrum and Chirality](hfgw_spectrum_chiral.png)
+
+
 ## 📜 Licencia y Certificación
 
 Este proyecto está certificado bajo la **Open Source Hardware Association (OSHWA)** y distribuido bajo la licencia MIT.
