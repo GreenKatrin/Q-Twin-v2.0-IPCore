@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22652350.svg)](https://doi.org/10.5281/zenodo.22652350)
 # Q-Twin v2.0: Hardware-in-the-Loop Quantum Gravity & Cosmology Emulator
 
 [![OSHWA Certified](https://img.shields.io/badge/OSHWA-Certified-blue.svg)](https://www.oshwa.org/)
