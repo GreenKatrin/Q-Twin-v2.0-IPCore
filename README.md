@@ -1,74 +1,61 @@
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22652350.svg)](https://doi.org/10.5281/zenodo.22652350)
-# Q-Twin v2.0: Hardware-in-the-Loop Quantum Gravity & Cosmology Emulator
+# Q-Twin v2.0: Simulador de Gemelo Digital HIL para Control Cuántico y Cosmología de Juguete
 
-[![OSHWA Certified](https://img.shields.io/badge/OSHWA-Certified-blue.svg)](https://www.oshwa.org/)
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/)
-[![Numba JIT](https://img.shields.io/badge/acceleration-Numba_JIT-green.svg)](https://numba.pydata.org/)
-[![FPGA Target](https://img.shields.io/badge/hardware-ZCU216_RFSoC-orange.svg)](https://www.xilinx.com/)
+**Estado del proyecto: simulación / arquitectura de referencia. No incluye ni requiere un procesador cuántico físico.**
 
-**Q-Twin v2.0** es un emulador analógico de gravedad cuántica y cosmología de rebote no singular acelerado por hardware reconfigurable (ZCU216 RFSoC) y redes tensoriales MPDO (*Matrix Product Density Operators*).
+**Q-Twin v2.0** es un simulador de gemelo digital que modela, en software, la respuesta de un sistema de control de qubits superconductores (topología de 16 transmones en serpentín) sobre una FPGA comercial AMD Xilinx RFSoC (ZCU216), usando una representación tensorial MPDO (*Matrix Product Density Operators*) para simular la ecuación maestra de Lindblad en tiempo real.
 
-El sistema simula en tiempo real la supresión del caos de Belinski-Khalatnikov-Lifshitz (BKL), la selección ambiental de estados puntero (*Einselection*), el colapso de la paridad de Wigner W(0,0) y la fase de recalentamiento post-rebote (H > 0).
+El objetivo es servir como banco de pruebas Hardware-in-the-Loop **para firmware y algoritmos de control** — de la misma forma en que un banco HIL automotriz (dSPACE) simula el motor para probar la centralita electrónica sin quemar gasolina — no como un modelo físico validado de cosmología primordial.
 
 ---
 
-## 🚀 Arquitectura y Física Fundamental
+## ⚠️ Qué es y qué no es este repositorio
 
-* **Motor Tensorial MPDO (chi = 32):** Representación eficiente del espacio de Liouville-Lindblad acotada por la ley de área 1D.
-* **Precodificación de Maxwell (C⁻¹):** Inversión analítica de la matriz de capacitancia en topología serpentín con supresión de diafonía J_13 < -60 dB.
-* **Regulación SMC (L_SMC):** Disipación cuántica suave que previene la singularidad inicial y fuerza un rebote cosmológico estable.
-* **Telemetría Zero-Copy:** Mapeo de memoria `/dev/mem` a 250 MHz vía AXI4-Lite con streaming DMA a 32 MB/s.
+**Es:**
+- Firmware SystemVerilog (`pulse_controller.sv`) para control de microondas en FPGAs RFSoC.
+- Scripts de compilación para placas AMD Xilinx Zynq RFSoC (ZCU216 / RFSoC4x2), en la misma familia de hardware que usa QICK (Fermilab) para control real de qubits.
+- Un motor de simulación de sistemas cuánticos abiertos en Python/Numba JIT (MPDO, χ = 32).
+- Un banco de pruebas HIL para validar algoritmos de control antes de disponer de un circuito cuántico físico.
 
----
+**No es:**
+- Un refrigerador de dilución físico ni un laboratorio criogénico.
+- Un chip de silicio superconductor fabricado. La "temperatura de 15 mK" es una variable de estado dentro de la simulación, no una medición.
+- Una demostración observacional de cosmología ekpirótica ni del Big Bang. Los valores de n_s, f_NL y r mostrados abajo son salidas de un modelo con parámetros calibrados por inversión para acercarse a Planck, no predicciones independientes — ver limitaciones más abajo.
 
-## 📊 Observables Cosmológicos Extraídos
+## 📊 Salidas del simulador (no mediciones, no predicciones cerradas)
 
-| Observable | Predicción Q-Twin v2.0 | Referencia Observacional |
-| :--- | :--- | :--- |
-| **Índice Espectral Escalar (n_s)** | 0.963 ± 0.004 | 0.9649 ± 0.0042 (Planck CMB) |
-| **Bispectro Local (f_NL)** | 1.2 ± 2.4 | -0.9 ± 5.1 (Planck Limit) |
-| **Razón Tensor-a-Escalar (r)** | < 10⁻³ | < 0.036 (BICEP / Keck Array) |
-| **Índice Espectral Tensorial (n_t)** | Azul (n_t > 0) | Firma detectable para LISA / ET |
-| **Paridad de Wigner (W00)** | -0.3183 -> +0.0462 | Transición Cuántico-Clásica Completa |
+| Observable | Salida del modelo | Referencia observacional | Estatus |
+| --- | --- | --- | --- |
+| Índice espectral escalar (n_s) | 0.963 ± 0.004 | 0.9649 ± 0.0042 (Planck CMB) | Calibrado: depende de fijar β por inversión |
+| Bispectro local (f_NL) | 1.2 ± 2.4 | −0.9 ± 5.1 (límite Planck) | Salida del canal de desfase simulado |
+| Razón tensor-a-escalar (r) | < 10⁻³ | < 0.036 (BICEP/Keck) | r_modelo no se ha calculado desde la cuantización; solo se fijó una cota |
+| Índice tensorial (n_t) | 2.4188 (analítico, sin verificar numéricamente) | — | Al resolver la ecuación de modos exacta sobre la métrica del propio proyecto, no se reproduce esta ley de potencias — ver Nota Metodológica v2.1 |
 
----
+Ver `Zenodo_v2.1_Nota_Metodologica.md` para el detalle completo de qué está verificado, qué está calibrado y qué sigue pendiente.
 
 ## 🗺️ Mapa de Registros AXI4-Lite (0xA000_0000)
 
-| Dirección Física | Registro Hardware | Función / Parámetro |
-| :--- | :--- | :--- |
-| **0xA000_0000** | Qn_PHASE_CTRL | Amplitud Séxtica eps_NL (12.5 MHz) |
-| **0xA000_0100** | CROSSTALK_COMP | Matriz Inversa C⁻¹ (16 x 16 Coeficientes) |
-| **0xA000_0200** | SMC_SAT_EPSILON | Capa Límite Sigmoidal eps_sat = 0.140 |
-| **0xA000_0300** | KAPPA_EFF_DISP | Tasa de Extracción kappa_eff = 1.0 MHz |
+| Dirección | Registro | Función |
+| --- | --- | --- |
+| 0xA000_0000 | Qn_PHASE_CTRL | Amplitud séxtica simulada ε_NL |
+| 0xA000_0100 | CROSSTALK_COMP | Matriz inversa C⁻¹ (16×16) para cancelar acoplamientos capacitivos simulados |
+| 0xA000_0200 | SMC_SAT_EPSILON | Capa límite sigmoidal del disipador suave simulado |
+| 0xA000_0300 | KAPPA_EFF_DISP | Tasa de disipación simulada en la ecuación de Lindblad |
 
----
+## 📁 Estructura del repositorio
 
-## 📁 Estructura del Repositorio
+- `simular_kasner.py` — simulación JIT del colapso de paridad de Wigner bajo cizalladura de Kasner (modelo, no medición).
+- `simular_recalentamiento.py` — modelo de transferencia de energía condensado→radiación.
+- `export_mpdo_tensors.py` — serialización de tensores simulados M[1,2,3] a HDF5/JSON.
+- `closed_loop_drl_agent.py` — agente de optimización multiobjetivo de Pareto para el control de fase AXI4-Lite.
+- `pulse_controller.sv` / `pulse_controller_axi.sv` / `pulse_controller_tb.sv` — RTL de control de pulsos y testbench.
+- `build_bitstream.tcl`, `run_vivado_timing.tcl` — compilación para RFSoC ZCU216.
 
-* **`simular_kasner.py`**: Simulación JIT del colapso de paridad de Wigner bajo cizalladura de Kasner.
-* **`simular_recalentamiento.py`**: Modelo de transferencia de energía del condensado a la fase de radiación.
-* **`export_mpdo_tensors.py`**: Pipeline de serialización de tensores de memoria M^[1,2,3] y metadatos observacionales en HDF5 / JSON.
-* **`trascendent_rl_agent.py`**: Agente de aprendizaje por refuerzo para el control óptimo de fase AXI4-Lite en tiempo real.
+## ✅ Cómo verificar sin tener la placa física
 
----
+Este repositorio puede clonarse y su firmware puede simularse sin poseer una tarjeta ZCU216:
 
-## ⚙️ Instrucciones de Ejecución
----
-
-
----
-
-## 📈 Benchmark Cosmológico HFGW y Quiralidad
-
-El repositorio incluye el conjunto de datos de referencia y la proyección gráfica para el fondo estocástico de ondas gravitacionales de alta frecuencia (HFGW):
-
-* **`hfgw_chiral_benchmark.json`**: Barrido espectral ($10\text{ Hz} - 100\text{ MHz}$) con densidad de energía total, grado de quiralidad ($\Pi(f)$) y descomposición en modos circulares ($\Omega_{\text{GW}}^R, \Omega_{\text{GW}}^L$).
-* **`hfgw_spectrum_chiral.png`**: Curva espectral con pico en $100\text{ kHz}$ y transición a polarización circular neta en la banda de microondas.
-
-![HFGW Spectrum and Chirality](hfgw_spectrum_chiral.png)
-
-
-## 📜 Licencia y Certificación
-
-Este proyecto está certificado bajo la **Open Source Hardware Association (OSHWA)** y distribuido bajo la licencia MIT.
+```bash
+# Simulación de RTL con Verilator (no requiere hardware)
+verilator --cc pulse_controller.sv --exe pulse_controller_tb.sv+
+# Simulación de RTL con Verilator (no requiere hardware)
+verilator --cc pulse_controller.sv --exe pulse_controller_tb.sv
