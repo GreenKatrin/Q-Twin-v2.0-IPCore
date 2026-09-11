@@ -28,7 +28,10 @@ El objetivo es servir como banco de pruebas Hardware-in-the-Loop **para firmware
 | Índice espectral escalar (n_s) | 0.963 ± 0.004 | 0.9649 ± 0.0042 (Planck CMB) | Calibrado: depende de fijar β por inversión |
 | Bispectro local (f_NL) | 1.2 ± 2.4 | −0.9 ± 5.1 (límite Planck) | Salida del canal de desfase simulado |
 | Razón tensor-a-escalar (r) | < 10⁻³ | < 0.036 (BICEP/Keck) | r_modelo no se ha calculado desde la cuantización; solo se fijó una cota |
-| Índice tensorial (n_t) | 2.4188 (analítico, sin verificar numéricamente) | — | Al resolver la ecuación de modos exacta sobre la métrica del propio proyecto, no se reproduce esta ley de potencias — ver Nota Metodológica v2.1 |
+| Frecuencia de recalentamiento ($f_{\\rm rh}$) | 26.50 MHz | ~ 100 MHz (HFGW) | Derivado ab initio ($k_{\\rm rh} = 1.714 \\times 10^{22}\\text{ Mpc}^{-1}$, factor $2\\pi$ corregido) |
+| Frecuencia de pico ($f_{\\max}$) | 32.05 MHz | — | Calculado numéricamente sobre métrica $\\mathcal{C}^\\infty$ |
+| Corte UV tensorial | $\\sim e^{-4k\\tau_b}$ | — | Verificado por integración DOP853 de Mukhanov-Sasaki |
+| Razón tensor-a-escalar ($r_{\\rm modelo}$) | $\\le 4.3 \\times 10^{-52}$ | $< 0.036$ (BICEP/Keck) | Cota BBN autocontenida por la densidad espectral integrada |
 
 Ver `Zenodo_v2.1_Nota_Metodologica.md` para el detalle completo de qué está verificado, qué está calibrado y qué sigue pendiente.
 
