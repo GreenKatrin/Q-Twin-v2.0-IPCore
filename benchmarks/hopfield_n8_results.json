@@ -1,0 +1,405 @@
+{
+  "params": {
+    "N": 8,
+    "T1_US": 150.0,
+    "T2S_US": 100.0,
+    "J0_MHZ": 0.389,
+    "H0_FIELD_MHZ": 0.389,
+    "patterns_hadamard_rows": [
+      1,
+      2,
+      4
+    ],
+    "target": "H1 |01010101>",
+    "probe": "|11000101> (Hamming distance 2 from target)"
+  },
+  "coarse_grid_5x5": [
+    {
+      "T_us": 3,
+      "gamma_bump_MHz": 0.05,
+      "fidelity": 0.0192
+    },
+    {
+      "T_us": 3,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.1132
+    },
+    {
+      "T_us": 3,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.1372
+    },
+    {
+      "T_us": 3,
+      "gamma_bump_MHz": 0.3,
+      "fidelity": 0.1082
+    },
+    {
+      "T_us": 3,
+      "gamma_bump_MHz": 0.5,
+      "fidelity": 0.091
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.05,
+      "fidelity": 0.0655
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.2543
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.2936
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.3,
+      "fidelity": 0.1918
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.5,
+      "fidelity": 0.0799
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.05,
+      "fidelity": 0.1059
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.3214
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.3346
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.3,
+      "fidelity": 0.2436
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.5,
+      "fidelity": 0.131
+    },
+    {
+      "T_us": 20,
+      "gamma_bump_MHz": 0.05,
+      "fidelity": 0.1608
+    },
+    {
+      "T_us": 20,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.2948
+    },
+    {
+      "T_us": 20,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.2915
+    },
+    {
+      "T_us": 20,
+      "gamma_bump_MHz": 0.3,
+      "fidelity": 0.2516
+    },
+    {
+      "T_us": 20,
+      "gamma_bump_MHz": 0.5,
+      "fidelity": 0.1854
+    },
+    {
+      "T_us": 40,
+      "gamma_bump_MHz": 0.05,
+      "fidelity": 0.1496
+    },
+    {
+      "T_us": 40,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.1865
+    },
+    {
+      "T_us": 40,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.1808
+    },
+    {
+      "T_us": 40,
+      "gamma_bump_MHz": 0.3,
+      "fidelity": 0.1638
+    },
+    {
+      "T_us": 40,
+      "gamma_bump_MHz": 0.5,
+      "fidelity": 0.1364
+    }
+  ],
+  "fine_grid_7x7": [
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.2700736588440347
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.2815812703955537
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.2861621590894761
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.29357811997981664
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.2948627292638271
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.27923358031827034
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.2336717300794239
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.302801247016597
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.3288368087620448
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.3289422426457764
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.30634297964421947
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.2763744370834235
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.2586112349593597
+    },
+    {
+      "T_us": 7,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.2573583966041301
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.3317496648732646
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.3372683524331258
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.3248884358434081
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.31941668165247294
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.32101309069694667
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.3099567865096354
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.26402550266971614
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.33916306374163724
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.3549730380061677
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.3479357732085615
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.334633545838901
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.3309850438711481
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.32264773859466134
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.2817161979095861
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.3372149439527865
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.34677381861213186
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.3494561954608766
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.3390365957925925
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.3304599325452413
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.32332582378909697
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.2900993438679512
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.335228898123387
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.34513009728093036
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.338224400791054
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.33337490495827926
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.32665802415281886
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.313647522571633
+    },
+    {
+      "T_us": 13,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.3092880775953609
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.11,
+      "fidelity": 0.32350378383153977
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.3306256656634185
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.15,
+      "fidelity": 0.3292003123937339
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.17,
+      "fidelity": 0.3224007238794989
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.19,
+      "fidelity": 0.31983592735386673
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.21,
+      "fidelity": 0.31095502276525133
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.24,
+      "fidelity": 0.30410788923794496
+    }
+  ],
+  "joint_optimum": {
+    "T_us": 10.29248046875,
+    "gamma_bump_MHz": 0.129197021484375,
+    "fidelity_to_target": 0.355945684650507
+  },
+  "fidelity_breakdown_at_optimum": {
+    "target_H1": 0.3559,
+    "H1_complement": 0.0007,
+    "H2": 0.0007,
+    "H2_complement": 0.3559,
+    "H4": 0.0171,
+    "H4_complement": 0.0171,
+    "total_in_pattern_or_complement_basins": 0.7474,
+    "note": "H2_complement es exactamente degenerado con el patron objetivo H1 en el espectro de H_ising final -- no es perdida por decoherencia, es una degeneracion genuina del paisaje de Hopfield con patrones Hadamard. El 25.3% restante SI se pierde a estados fuera de las 6 cuencas (efecto no-adiabatico + decoherencia)."
+  }
+}
