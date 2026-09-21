@@ -1,0 +1,186 @@
+{
+  "params": {
+    "N": 8,
+    "T1_US": 150.0,
+    "T2S_US": 100.0,
+    "J0_MHZ": 0.389,
+    "H0_FIELD_MHZ": 0.389,
+    "patterns": {
+      "P1": [
+        1.0,
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0,
+        -1.0
+      ],
+      "P2": [
+        -1.0,
+        -1.0,
+        1.0,
+        -1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "P3": [
+        -1.0,
+        1.0,
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ]
+    },
+    "target_key": "P1",
+    "target_bitstring": "00011011",
+    "probe_bitstring": "11011011",
+    "hamming_margin_design": "distancia sonda-objetivo=2, margen>=1 a cualquier otro atractor"
+  },
+  "grid": [
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.4224917990167382
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.5352565073643107
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.16,
+      "fidelity": 0.5232416476365086
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.2,
+      "fidelity": 0.4381589206271493
+    },
+    {
+      "T_us": 6,
+      "gamma_bump_MHz": 0.25,
+      "fidelity": 0.3268098567482935
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.450611901553475
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.5340968962346302
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.16,
+      "fidelity": 0.517140667791847
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.2,
+      "fidelity": 0.45452809584192216
+    },
+    {
+      "T_us": 8,
+      "gamma_bump_MHz": 0.25,
+      "fidelity": 0.359547352178673
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.5163409772879093
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.5713013483579366
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.16,
+      "fidelity": 0.5213870086959028
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.2,
+      "fidelity": 0.43203564778001036
+    },
+    {
+      "T_us": 10,
+      "gamma_bump_MHz": 0.25,
+      "fidelity": 0.3620462000913472
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.5151696965788979
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.5604836630513285
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.16,
+      "fidelity": 0.5277153561005903
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.2,
+      "fidelity": 0.4296720817770023
+    },
+    {
+      "T_us": 12,
+      "gamma_bump_MHz": 0.25,
+      "fidelity": 0.341514080051331
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.1,
+      "fidelity": 0.5030827563292356
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.13,
+      "fidelity": 0.526648380709463
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.16,
+      "fidelity": 0.5000530746398538
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.2,
+      "fidelity": 0.408806985129328
+    },
+    {
+      "T_us": 15,
+      "gamma_bump_MHz": 0.25,
+      "fidelity": 0.333210538399412
+    }
+  ],
+  "joint_optimum": {
+    "T_us": 9.55419921875,
+    "gamma_bump_MHz": 0.13093627929687496,
+    "fidelity_to_target": 0.5748630858958845
+  },
+  "fidelity_all_patterns_at_optimum": {
+    "P1": 0.5748630858958845,
+    "P1_comp": 0.0008208626734724661,
+    "P2": 0.07403562978634264,
+    "P2_comp": 0.008466853117319543,
+    "P3": 0.010709837742788872,
+    "P3_comp": 0.021773111705585397
+  },
+  "runtime_seconds": 795.9569404125214
+}
